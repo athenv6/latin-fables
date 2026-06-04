@@ -1,25 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+
+<style>
+body {
+  font-family: 'MedievalSharp', cursive;
+  margin: 40px;
+  line-height: 1.8;
+
+  background-image: url("https://www.english.ox.ac.uk/sites/default/files/styles/mt_image_large/public/english/images/article/767px-wenceslas_hollar_-_the_cock_and_the_jewel.jpg?itok=mAj4ozid");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* MAIN CONTAINER */
+.content {
+  max-width: 900px;
+  background: rgba(255, 255, 255, 0.65);
+  padding: 30px;
+  border-radius: 10px;
+}
+
+/* VERSE STYLE */
+.latin {
+  white-space: pre-line;
+}
+
+/* CLICKABLE WORDS */
+.w {
+  color: darkblue;
+  cursor: pointer;
+}
+
+/* GLOSS BOX */
+#gloss {
+  margin-top: 20px;
+  padding: 10px;
+  border-left: 3px solid green;
+  background: rgba(240, 240, 240, 0.85);
+}
+
+/* COMMENTARY */
+.commentary {
+  background: rgba(248, 248, 248, 0.85);
+  padding: 15px;
+  border-left: 3px solid #999;
+  margin-top: 10px;
+}
+
+/* TITLES */
+h2 {
+  border-bottom: 2px solid #444;
+  margin-top: 30px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="content">
+
+<h1>De gallo et iaspide</h1>
+
+<!-- FABLE -->
+<h2>Fable (Narratio)</h2>
+
+<p class="latin">
+Dum rigido fodit ore 
+<span class="w" onclick="g('fimum')">fimum</span>, dum queritat 
+<span class="w" onclick="g('escam')">escam</span>,
+tunc stupet inuenta 
+<span class="w" onclick="g('iaspis')">iaspide</span> gallus. Ayt:
+
+“Res vili preciosa loco varique decoris,
+Hac in 
+<span class="w" onclick="g('sorde')">sorde</span> iaces; nil michi 
+<span class="w" onclick="g('messis')">messis</span> habes.
+
+Si tibi nunc esset qui debet esse 
+<span class="w" onclick="g('repertor')">repertor</span>,
+quem fimus hic cepulit, viueret arte 
+<span class="w" onclick="g('nitor')">nitor</span>.
+
+Nec tibi 
+<span class="w" onclick="g('conuenio')">conuenio</span>, nec tu michi;
+nec tibi 
+<span class="w" onclick="g('prosum')">prosum</span>,
+nec michi tu 
+<span class="w" onclick="g('prodes')">prodes</span>.
+
+Plus amo 
+<span class="w" onclick="g('cara')">cara</span> minus.”
+</p>
+
+<p class="latin">
+In gallo stolidum, tu iaspide dona sophie pulchra notes.
+<span class="w" onclick="g('stolido')">Stolido</span> nil valet illa seges.
+</p>
+
+<!-- GLOSS OUTPUT -->
+<div id="gloss"></div>
+
+<!-- COMMENTARY -->
+<h2>Explanatio (Moralitas et Commentarius)</h2>
+
+<div class="commentary">
+Presens appollogus de gallo reprehendit stolidos et instruit quemlibet ut non sit ebes sed intelligens, non fatuus sed sapiens.
+
+Et est appollogus iste:
+Gallus tempore querens escam in fimo invenit lapidem preciosum quo uti non valuit.
+
+Cur dixit: “O preciosa res et mire nobilitatis, quare iaces in isto loco fetido?
+Michi nullus es utilitatis, sed si quis te invenisset qui te uti posset, tunc splendor et nobilitas tua augmentaretur.
+Sed quia nec ego tibi nec michi conveniens es, quo magis rem invenissem minus caram, puta parvum granum quod stomachum meum saturasset.”
+
+Moraliter per gallum intellige stolidum et stultum, per fimum intellige istum mundum.
+Per iaspidem intellige regnum celeste vel gratiam Sancti Spiritus vel sapienciam.
+
+Nam sicut gallus non curabat iaspidem, licet valet mille grana tritici, ita insipiens non curat regnum Dei nec sapientiam.
+
+Non enim stultus considerat sapiencie utilitatem que omnium rerum noticiam confert efficacem.
+
+Est enim studium sapiencie pabulum anime.
+Pabulum, inquam, suave et iocundum.
+
+Quid enim iocundius et felicius quam humanarum divinarumque rerum cognitio, que est sapiencia?
+
+Attendamus ergo quam sit delectabile naturalia perscrutari.
+
+Unde antiqui sacerdotes in Egipto acquisitis vite necessariis primo admirari ceperunt et nunc philosophando philosophie viscera delectabiliter perscrutari.
+
+Unde Tullius inquit de ipsa sapiencia:
+“Est animarum ingeniorumque naturale quasi pabulum quoddam contemplatio nature.”
+
+Et Didimus ad Alexandrum:
+“Nulla spectacula vel certamina tam affectamus sicut sapientie studium.”
+
+Item Seneca:
+“Dulce spectaculum est singula scrutari.”
+
+Nam secundum Virgilium in Georgicis:
+“Felix qui potuit rerum cognoscere causas.”
+
+Unde Tulius, primo libro de divinatione:
+“Si quis mortalis omnium colligationes causarum animo prospicere posset, nichil eum profecto falleret.”
+
+Nam ex noticia mortalium noticia perpenditur conditoris.
+
+Unde Prosper inquit:
+“En miris operum signis ostenditur actor, actoremque suum condita queque canunt.”
+</div>
+
+</div>
+
 <script>
-document.addEventListener("DOMContentLoaded", function () {
+function g(w) {
 
-  window.g = function (w) {
+let t = "";
 
-    let t = "";
+if (w === "fimum") t = "terram";
+if (w === "escam") t = "cibum";
+if (w === "iaspis") t = "sapientia / lapis preciosus";
+if (w === "sorde") t = "immunditia";
+if (w === "messis") t = "fructus";
+if (w === "repertor") t = "inventor";
+if (w === "nitor") t = "splendor";
+if (w === "conuenio") t = "congruo / aptus sum";
+if (w === "prosum") t = "utilis sum";
+if (w === "prodes") t = "utilis es";
+if (w === "cara") t = "pretiosa";
+if (w === "stolido") t = "stulto / insipiente";
 
-    if (w === "fimum") t = "terram";
-    else if (w === "escam") t = "cibum";
-    else if (w === "iaspis") t = "sapientia / lapis preciosus";
-    else if (w === "sorde") t = "immunditia";
-    else if (w === "messis") t = "fructus";
-    else if (w === "repertor") t = "inventor";
-    else if (w === "nitor") t = "splendor";
-    else if (w === "conuenio") t = "congruo / aptus sum";
-    else if (w === "prosum") t = "utilis sum";
-    else if (w === "prodes") t = "utilis es";
-    else if (w === "cara") t = "pretiosa";
-    else if (w === "stolido") t = "stulto / insipiente";
-
-    document.getElementById("gloss").innerHTML = t;
-  };
-
-});
+document.getElementById("gloss").innerHTML = t;
+}
 </script>
+
+</body>
+</html>
