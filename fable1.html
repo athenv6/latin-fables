@@ -10,35 +10,52 @@ body {
   font-family: 'MedievalSharp', cursive;
   margin: 40px;
   line-height: 1.8;
+
+  background-image: url("https://www.english.ox.ac.uk/sites/default/files/styles/mt_image_large/public/english/images/article/767px-wenceslas_hollar_-_the_cock_and_the_jewel.jpg?itok=mAj4ozid");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
+/* MAIN CONTAINER */
 .content {
   max-width: 900px;
+  background: rgba(255, 255, 255, 0.65);
+  padding: 30px;
+  border-radius: 10px;
 }
 
-h2 {
-  border-bottom: 2px solid #444;
-  margin-top: 30px;
+/* VERSE STYLE */
+.latin {
+  white-space: pre-line;
 }
 
+/* CLICKABLE WORDS */
 .w {
   color: darkblue;
   cursor: pointer;
 }
 
+/* GLOSS BOX */
 #gloss {
   margin-top: 20px;
   padding: 10px;
   border-left: 3px solid green;
-  background: #f4f4f4;
+  background: rgba(240, 240, 240, 0.85);
 }
 
-/* commentary styling (unchanged read-only) */
+/* COMMENTARY */
 .commentary {
-  background: #f8f8f8;
+  background: rgba(248, 248, 248, 0.85);
   padding: 15px;
   border-left: 3px solid #999;
   margin-top: 10px;
+}
+
+/* TITLES */
+h2 {
+  border-bottom: 2px solid #444;
+  margin-top: 30px;
 }
 </style>
 </head>
@@ -49,35 +66,29 @@ h2 {
 
 <h1>De gallo et iaspide</h1>
 
-<!-- 🟦 FABLE SECTION -->
+<!-- FABLE -->
 <h2>Fable (Narratio)</h2>
 
-<p>
+<p class="latin">
 Dum rigido fodit ore 
-<span class="w" onclick="g('fimum')">fimum</span>,
-dum queritat 
+<span class="w" onclick="g('fimum')">fimum</span>, dum queritat 
 <span class="w" onclick="g('escam')">escam</span>,
 tunc stupet inuenta 
-<span class="w" onclick="g('iaspis')">iaspide</span> gallus.
-Ayt:
+<span class="w" onclick="g('iaspis')">iaspide</span> gallus. Ayt:
 
 “Res vili preciosa loco varique decoris,
-hac in 
-<span class="w" onclick="g('sorde')">sorde</span> iaces;
-nil michi 
+Hac in 
+<span class="w" onclick="g('sorde')">sorde</span> iaces; nil michi 
 <span class="w" onclick="g('messis')">messis</span> habes.
 
 Si tibi nunc esset qui debet esse 
-<span class="w" onclick="g('repertor')">repertor</span>...
-
-Quem fimus hic cepulit, viueret arte 
+<span class="w" onclick="g('repertor')">repertor</span>,
+quem fimus hic cepulit, viueret arte 
 <span class="w" onclick="g('nitor')">nitor</span>.
 
 Nec tibi 
-<span class="w" onclick="g('conuenio')">conuenio</span>,
-nec tu michi.
-
-Nec tibi 
+<span class="w" onclick="g('conuenio')">conuenio</span>, nec tu michi;
+nec tibi 
 <span class="w" onclick="g('prosum')">prosum</span>,
 nec michi tu 
 <span class="w" onclick="g('prodes')">prodes</span>.
@@ -86,15 +97,15 @@ Plus amo
 <span class="w" onclick="g('cara')">cara</span> minus.”
 </p>
 
-<p>
+<p class="latin">
 In gallo stolidum, tu iaspide dona sophie pulchra notes.
 <span class="w" onclick="g('stolido')">Stolido</span> nil valet illa seges.
 </p>
 
-<!-- gloss output -->
+<!-- GLOSS OUTPUT -->
 <div id="gloss"></div>
 
-<!-- 🟩 EXPLANATION SECTION (UNCHANGED) -->
+<!-- COMMENTARY -->
 <h2>Explanatio (Moralitas et Commentarius)</h2>
 
 <div class="commentary">
