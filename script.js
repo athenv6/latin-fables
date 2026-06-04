@@ -1,21 +1,25 @@
-function showGloss(word) {
-  const box = document.getElementById("glossBox");
+<script>
+document.addEventListener("DOMContentLoaded", function () {
 
-  let text = "";
+  window.g = function (w) {
 
-  if (word === "gallus") {
-    text = "gallus = foolish man / cock";
-  }
+    let t = "";
 
-  if (word === "iaspis") {
-    text = "iaspis = wisdom / precious stone";
-  }
+    if (w === "fimum") t = "terram";
+    else if (w === "escam") t = "cibum";
+    else if (w === "iaspis") t = "sapientia / lapis preciosus";
+    else if (w === "sorde") t = "immunditia";
+    else if (w === "messis") t = "fructus";
+    else if (w === "repertor") t = "inventor";
+    else if (w === "nitor") t = "splendor";
+    else if (w === "conuenio") t = "congruo / aptus sum";
+    else if (w === "prosum") t = "utilis sum";
+    else if (w === "prodes") t = "utilis es";
+    else if (w === "cara") t = "pretiosa";
+    else if (w === "stolido") t = "stulto / insipiente";
 
-  box.innerHTML = text;
-  box.style.display = "block";
-}
+    document.getElementById("gloss").innerHTML = t;
+  };
 
-function showNote() {
-  const note = document.getElementById("noteBox");
-  note.style.display = "block";
-}
+});
+</script>
