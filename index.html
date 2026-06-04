@@ -2,14 +2,39 @@
 <html>
 <head>
   <meta charset="UTF-8">
+  <title>Latin Fables</title>
 
-  <title>Latin Fable Collection</title>
-
-  <!-- medieval font -->
   <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'MedievalSharp', cursive;
+      background-image: url("https://bestiary.ca/beastimage/minimg100410.jpg");
+      background-size: cover;
+    }
+
+    .container {
+      background: rgba(255,255,255,0.85);
+      padding: 40px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    input {
+      padding: 10px;
+      width: 220px;
+    }
+
+    button {
+      padding: 10px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 
 <body>
@@ -18,18 +43,24 @@
 
     <h1>Latin Fable Collection</h1>
 
-    <p>Search by fable number or title</p>
+    <p>Search by number or title</p>
 
-    <!-- ✅ THIS IS YOUR SEARCH BAR -->
-    <input id="searchBox" placeholder="Type 1 or gallo">
-
-    <!-- button -->
+    <input id="searchBox" placeholder="Type 1">
     <button onclick="searchFable()">Search</button>
 
   </div>
 
-  <!-- JS -->
-  <script src="script.js"></script>
+  <script>
+    function searchFable() {
+      const input = document.getElementById("searchBox").value.trim();
+
+      if (input === "1") {
+        window.location.href = "fable.html?id=1";
+      } else {
+        alert("Try 1");
+      }
+    }
+  </script>
 
 </body>
 </html>
