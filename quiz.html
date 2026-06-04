@@ -21,7 +21,7 @@ body {
   background: white;
   padding: 30px;
   border-radius: 10px;
-  width: 400px;
+  width: 420px;
 }
 
 input {
@@ -34,6 +34,11 @@ button {
   margin-top: 10px;
   padding: 8px 15px;
   cursor: pointer;
+}
+
+.result {
+  margin-top: 15px;
+  text-align: left;
 }
 </style>
 </head>
@@ -52,35 +57,42 @@ button {
 
 <button onclick="check()">Check</button>
 
-<p id="result"></p>
+<div id="result" class="result"></div>
 
 </div>
 
 <script>
 function check() {
 
+const answers = [
+  ["f1", "terram"],
+  ["f2", "cibum"],
+  ["f3", "sapientia"],
+  ["f4", "immunditia"],
+  ["f5", "fructus"]
+];
+
+let output = "";
 let score = 0;
 
-function test(id, correct) {
+for (let i = 0; i < answers.length; i++) {
+
+let id = answers[i][0];
+let correct = answers[i][1];
 let val = document.getElementById(id).value.trim().toLowerCase();
-if (val === correct) score++;
-}
 
-test("f1", "terram");
-test("f2", "cibum");
-test("f3", "sapientia");
-test("f4", "immunditia");
-test("f5", "fructus");
-
-let msg = "";
-
-if (score === 5) {
-msg = "Correct! 5/5";
+if (val === correct) {
+  output += "✔ " + id + " correct<br>";
+  score++;
 } else {
-msg = "Wrong: " + score + "/5 correct";
+  output += "❌ " + id + " wrong → correct: " + correct + "<br>";
 }
 
-document.getElementById("result").innerText = msg;
+}
+
+output += "<br><b>Score: " + score + "/5</b>";
+
+document.getElementById("result").innerHTML = output;
 }
 </script>
 
