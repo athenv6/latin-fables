@@ -1,53 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>Fable 1 - De gallo et iaspide</title>
+<meta charset="UTF-8">
 
-  <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
 
-  <style>
-    body {
-      font-family: 'MedievalSharp', cursive;
-      margin: 40px;
-      line-height: 1.8;
+<style>
+body {
+  font-family: 'MedievalSharp', cursive;
+  margin: 40px;
+  line-height: 1.8;
+}
 
-      background-image: url("https://www.english.ox.ac.uk/sites/default/files/styles/mt_image_large/public/english/images/article/767px-wenceslas_hollar_-_the_cock_and_the_jewel.jpg?itok=mAj4ozid");
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-    }
+.content {
+  max-width: 900px;
+}
 
-    .content {
-      background: rgba(255, 255, 255, 0.93);
-      padding: 30px;
-      border-radius: 10px;
-    }
+h2 {
+  border-bottom: 2px solid #444;
+  margin-top: 30px;
+}
 
-    h2 {
-      border-bottom: 2px solid #444;
-      padding-bottom: 5px;
-      margin-top: 30px;
-    }
+.w {
+  color: darkblue;
+  cursor: pointer;
+}
 
-    .box {
-      display: none;
-      margin-top: 15px;
-      padding: 10px;
-      border-left: 3px solid darkgreen;
-      background: #f4f4f4;
-    }
+#gloss {
+  margin-top: 20px;
+  padding: 10px;
+  border-left: 3px solid green;
+  background: #f4f4f4;
+}
 
-    .symbol {
-      color: red;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    .latin {
-      white-space: pre-line;
-    }
-  </style>
+/* commentary styling (unchanged read-only) */
+.commentary {
+  background: #f8f8f8;
+  padding: 15px;
+  border-left: 3px solid #999;
+  margin-top: 10px;
+}
+</style>
 </head>
 
 <body>
@@ -59,121 +52,119 @@
 <!-- 🟦 FABLE SECTION -->
 <h2>Fable (Narratio)</h2>
 
-<p class="latin">
-Dum rigido fodit ore fimum, dum queritat escam,
-tunc stupet inventa iaspide gallus. Ayt:
+<p>
+Dum rigido fodit ore 
+<span class="w" onclick="g('fimum')">fimum</span>,
+dum queritat 
+<span class="w" onclick="g('escam')">escam</span>,
+tunc stupet inuenta 
+<span class="w" onclick="g('iaspis')">iaspide</span> gallus.
+Ayt:
 
 “Res vili preciosa loco varique decoris,
-Hac in sorde iaces; nil michi messis habes.
-Si tibi nunc esset qui debet esse repertor,
-Quem fimus hic cepulit, viueret arte nitor.
-Nec tibi convenior, nec tu michi; nec tibi prosum,
-Nec michi tu prodes. Plus amo cara minus.”
+hac in 
+<span class="w" onclick="g('sorde')">sorde</span> iaces;
+nil michi 
+<span class="w" onclick="g('messis')">messis</span> habes.
 
-In gallo stolidum, tu iaspide dona sophie
-Pulchra notes. Stolido nil valet illa seges.
+Si tibi nunc esset qui debet esse 
+<span class="w" onclick="g('repertor')">repertor</span>...
+
+Quem fimus hic cepulit, viueret arte 
+<span class="w" onclick="g('nitor')">nitor</span>.
+
+Nec tibi 
+<span class="w" onclick="g('conuenio')">conuenio</span>,
+nec tu michi.
+
+Nec tibi 
+<span class="w" onclick="g('prosum')">prosum</span>,
+nec michi tu 
+<span class="w" onclick="g('prodes')">prodes</span>.
+
+Plus amo 
+<span class="w" onclick="g('cara')">cara</span> minus.”
 </p>
 
 <p>
-Gallus invenit iaspidem in fimo
-<span class="symbol" onclick="showNote()">▲</span>.
+In gallo stolidum, tu iaspide dona sophie pulchra notes.
+<span class="w" onclick="g('stolido')">Stolido</span> nil valet illa seges.
 </p>
 
-<!-- 🟩 EXPLANATION SECTION -->
+<!-- gloss output -->
+<div id="gloss"></div>
+
+<!-- 🟩 EXPLANATION SECTION (UNCHANGED) -->
 <h2>Explanatio (Moralitas et Commentarius)</h2>
 
-<p>
+<div class="commentary">
 Presens appollogus de gallo reprehendit stolidos et instruit quemlibet ut non sit ebes sed intelligens, non fatuus sed sapiens.
-</p>
 
-<p>
 Et est appollogus iste:
 Gallus tempore querens escam in fimo invenit lapidem preciosum quo uti non valuit.
-</p>
 
-<p>
 Cur dixit: “O preciosa res et mire nobilitatis, quare iaces in isto loco fetido?
 Michi nullus es utilitatis, sed si quis te invenisset qui te uti posset, tunc splendor et nobilitas tua augmentaretur.
 Sed quia nec ego tibi nec michi conveniens es, quo magis rem invenissem minus caram, puta parvum granum quod stomachum meum saturasset.”
-</p>
 
-<p>
 Moraliter per gallum intellige stolidum et stultum, per fimum intellige istum mundum.
 Per iaspidem intellige regnum celeste vel gratiam Sancti Spiritus vel sapienciam.
-</p>
 
-<p>
 Nam sicut gallus non curabat iaspidem, licet valet mille grana tritici, ita insipiens non curat regnum Dei nec sapientiam.
-</p>
 
-<p>
 Non enim stultus considerat sapiencie utilitatem que omnium rerum noticiam confert efficacem.
-</p>
 
-<p>
 Est enim studium sapiencie pabulum anime.
 Pabulum, inquam, suave et iocundum.
-</p>
 
-<p>
 Quid enim iocundius et felicius quam humanarum divinarumque rerum cognitio, que est sapiencia?
-</p>
 
-<p>
 Attendamus ergo quam sit delectabile naturalia perscrutari.
-</p>
 
-<p>
 Unde antiqui sacerdotes in Egipto acquisitis vite necessariis primo admirari ceperunt et nunc philosophando philosophie viscera delectabiliter perscrutari.
-</p>
 
-<p>
 Unde Tullius inquit de ipsa sapiencia:
 “Est animarum ingeniorumque naturale quasi pabulum quoddam contemplatio nature.”
-</p>
 
-<p>
 Et Didimus ad Alexandrum:
 “Nulla spectacula vel certamina tam affectamus sicut sapientie studium.”
-</p>
 
-<p>
 Item Seneca:
 “Dulce spectaculum est singula scrutari.”
-</p>
 
-<p>
 Nam secundum Virgilium in Georgicis:
 “Felix qui potuit rerum cognoscere causas.”
-</p>
 
-<p>
 Unde Tulius, primo libro de divinatione:
 “Si quis mortalis omnium colligationes causarum animo prospicere posset, nichil eum profecto falleret.”
-</p>
 
-<p>
 Nam ex noticia mortalium noticia perpenditur conditoris.
-</p>
 
-<p>
 Unde Prosper inquit:
 “En miris operum signis ostenditur actor, actoremque suum condita queque canunt.”
-</p>
+</div>
 
 </div>
 
 <script>
-function showNote() {
-  const note = document.getElementById("noteBox");
-  if (!note) {
-    const div = document.createElement("div");
-    div.id = "noteBox";
-    div.className = "box";
-    div.innerHTML = "Moral interpretation: gallus = foolish man, iaspis = wisdom, fimus = world.";
-    document.querySelector(".content").appendChild(div);
-  }
-  document.getElementById("noteBox").style.display = "block";
+function g(w) {
+
+let t = "";
+
+if (w === "fimum") t = "terram";
+if (w === "escam") t = "cibum";
+if (w === "iaspis") t = "sapientia / lapis preciosus";
+if (w === "sorde") t = "immunditia";
+if (w === "messis") t = "fructus";
+if (w === "repertor") t = "inventor";
+if (w === "nitor") t = "splendor";
+if (w === "conuenio") t = "congruo / aptus sum";
+if (w === "prosum") t = "utilis sum";
+if (w === "prodes") t = "utilis es";
+if (w === "cara") t = "pretiosa";
+if (w === "stolido") t = "stulto / insipiente";
+
+document.getElementById("gloss").innerHTML = t;
 }
 </script>
 
