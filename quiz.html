@@ -11,34 +11,48 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   margin: 0;
   background: #f5f5f5;
 }
 
 .box {
-  text-align: center;
   background: white;
   padding: 30px;
   border-radius: 10px;
-  width: 420px;
+  width: 500px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 8px 0;
+}
+
+.word {
+  width: 90px;
 }
 
 input {
-  padding: 5px;
-  margin: 5px;
-  width: 200px;
+  width: 160px;
+  padding: 4px;
+}
+
+.res {
+  width: 180px;
+  font-size: 14px;
 }
 
 button {
-  margin-top: 10px;
+  margin-top: 15px;
   padding: 8px 15px;
   cursor: pointer;
 }
 
-.result {
-  margin-top: 15px;
-  text-align: left;
+.center {
+  text-align: center;
+  margin-top: 10px;
 }
 </style>
 </head>
@@ -47,52 +61,71 @@ button {
 
 <div class="box">
 
-<h2>Fable Quiz</h2>
+<h2 class="center">Fable 1 Vocabulary</h2>
 
-<p>fimum → <input id="f1"></p>
-<p>escam → <input id="f2"></p>
-<p>iaspis → <input id="f3"></p>
-<p>sorde → <input id="f4"></p>
-<p>messis → <input id="f5"></p>
+<div class="row">
+  <div class="word">fimum</div>
+  <input id="f1">
+  <div class="res" id="r1"></div>
+</div>
 
+<div class="row">
+  <div class="word">escam</div>
+  <input id="f2">
+  <div class="res" id="r2"></div>
+</div>
+
+<div class="row">
+  <div class="word">iaspis</div>
+  <input id="f3">
+  <div class="res" id="r3"></div>
+</div>
+
+<div class="row">
+  <div class="word">sorde</div>
+  <input id="f4">
+  <div class="res" id="r4"></div>
+</div>
+
+<div class="row">
+  <div class="word">messis</div>
+  <input id="f5">
+  <div class="res" id="r5"></div>
+</div>
+
+<div class="center">
 <button onclick="check()">Check</button>
-
-<div id="result" class="result"></div>
+</div>
 
 </div>
 
 <script>
 function check() {
 
-const answers = [
-  ["f1", "terram"],
-  ["f2", "cibum"],
-  ["f3", "sapientia"],
-  ["f4", "immunditia"],
-  ["f5", "fructus"]
+let data = [
+  ["f1", "r1", "terram"],
+  ["f2", "r2", "cibum"],
+  ["f3", "r3", "sapientia"],
+  ["f4", "r4", "immunditia"],
+  ["f5", "r5", "fructus"]
 ];
 
-let output = "";
-let score = 0;
+for (let i = 0; i < data.length; i++) {
 
-for (let i = 0; i < answers.length; i++) {
+let input = document.getElementById(data[i][0]).value.trim().toLowerCase();
+let box = document.getElementById(data[i][1]);
+let correct = data[i][2];
 
-let id = answers[i][0];
-let correct = answers[i][1];
-let val = document.getElementById(id).value.trim().toLowerCase();
-
-if (val === correct) {
-  output += "✔ " + id + " correct<br>";
-  score++;
+if (input === correct) {
+  box.innerHTML = "✔";
+  box.style.color = "green";
 } else {
-  output += "❌ " + id + " wrong → correct: " + correct + "<br>";
+  box.innerHTML = "✘ " + correct;
+  box.style.color = "red";
 }
 
 }
 
-output += "<br><b>Score: " + score + "/5</b>";
-
-document.getElementById("result").innerHTML = output;
 }
 </script>
 
