@@ -2,9 +2,8 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Fable 1</title>
+  <title>Fable 1 - De gallo et iaspide</title>
 
-  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
 
   <style>
@@ -20,28 +19,33 @@
     }
 
     .content {
-      background: rgba(255, 255, 255, 0.88);
+      background: rgba(255, 255, 255, 0.93);
       padding: 30px;
       border-radius: 10px;
     }
 
+    h2 {
+      border-bottom: 2px solid #444;
+      padding-bottom: 5px;
+      margin-top: 30px;
+    }
+
     .box {
       display: none;
-      margin-top: 20px;
+      margin-top: 15px;
       padding: 10px;
       border-left: 3px solid darkgreen;
       background: #f4f4f4;
-    }
-
-    .word {
-      color: darkblue;
-      cursor: pointer;
     }
 
     .symbol {
       color: red;
       cursor: pointer;
       font-weight: bold;
+    }
+
+    .latin {
+      white-space: pre-line;
     }
   </style>
 </head>
@@ -52,40 +56,123 @@
 
 <h1>De gallo et iaspide</h1>
 
-<p>
-Dum rigido fodit ore fimum, dum queritat escam, tunc stupet inventa 
-<span class="word" onclick="showGloss('iaspis')">iaspide</span> gallus. 
-Ayt: 
-<span class="symbol" onclick="showNote()">▲</span>
+<!-- 🟦 FABLE SECTION -->
+<h2>Fable (Narratio)</h2>
+
+<p class="latin">
+Dum rigido fodit ore fimum, dum queritat escam,
+tunc stupet inventa iaspide gallus. Ayt:
+
+“Res vili preciosa loco varique decoris,
+Hac in sorde iaces; nil michi messis habes.
+Si tibi nunc esset qui debet esse repertor,
+Quem fimus hic cepulit, viueret arte nitor.
+Nec tibi convenior, nec tu michi; nec tibi prosum,
+Nec michi tu prodes. Plus amo cara minus.”
+
+In gallo stolidum, tu iaspide dona sophie
+Pulchra notes. Stolido nil valet illa seges.
 </p>
 
-<div id="glossBox" class="box"></div>
+<p>
+Gallus invenit iaspidem in fimo
+<span class="symbol" onclick="showNote()">▲</span>.
+</p>
 
-<div id="noteBox" class="box">
-Meaning: The fable contrasts foolishness (cock in dung) with wisdom (jasper).
-</div>
-
-<hr>
+<!-- 🟩 EXPLANATION SECTION -->
+<h2>Explanatio (Moralitas et Commentarius)</h2>
 
 <p>
-“Res vili preciosa loco varique decoris, hac in sorde iaces; nil michi messis habes.
-Si tibi nunc esset qui debet esse repertor... Plus amo cara minus.”
+Presens appollogus de gallo reprehendit stolidos et instruit quemlibet ut non sit ebes sed intelligens, non fatuus sed sapiens.
+</p>
+
+<p>
+Et est appollogus iste:
+Gallus tempore querens escam in fimo invenit lapidem preciosum quo uti non valuit.
+</p>
+
+<p>
+Cur dixit: “O preciosa res et mire nobilitatis, quare iaces in isto loco fetido?
+Michi nullus es utilitatis, sed si quis te invenisset qui te uti posset, tunc splendor et nobilitas tua augmentaretur.
+Sed quia nec ego tibi nec michi conveniens es, quo magis rem invenissem minus caram, puta parvum granum quod stomachum meum saturasset.”
+</p>
+
+<p>
+Moraliter per gallum intellige stolidum et stultum, per fimum intellige istum mundum.
+Per iaspidem intellige regnum celeste vel gratiam Sancti Spiritus vel sapienciam.
+</p>
+
+<p>
+Nam sicut gallus non curabat iaspidem, licet valet mille grana tritici, ita insipiens non curat regnum Dei nec sapientiam.
+</p>
+
+<p>
+Non enim stultus considerat sapiencie utilitatem que omnium rerum noticiam confert efficacem.
+</p>
+
+<p>
+Est enim studium sapiencie pabulum anime.
+Pabulum, inquam, suave et iocundum.
+</p>
+
+<p>
+Quid enim iocundius et felicius quam humanarum divinarumque rerum cognitio, que est sapiencia?
+</p>
+
+<p>
+Attendamus ergo quam sit delectabile naturalia perscrutari.
+</p>
+
+<p>
+Unde antiqui sacerdotes in Egipto acquisitis vite necessariis primo admirari ceperunt et nunc philosophando philosophie viscera delectabiliter perscrutari.
+</p>
+
+<p>
+Unde Tullius inquit de ipsa sapiencia:
+“Est animarum ingeniorumque naturale quasi pabulum quoddam contemplatio nature.”
+</p>
+
+<p>
+Et Didimus ad Alexandrum:
+“Nulla spectacula vel certamina tam affectamus sicut sapientie studium.”
+</p>
+
+<p>
+Item Seneca:
+“Dulce spectaculum est singula scrutari.”
+</p>
+
+<p>
+Nam secundum Virgilium in Georgicis:
+“Felix qui potuit rerum cognoscere causas.”
+</p>
+
+<p>
+Unde Tulius, primo libro de divinatione:
+“Si quis mortalis omnium colligationes causarum animo prospicere posset, nichil eum profecto falleret.”
+</p>
+
+<p>
+Nam ex noticia mortalium noticia perpenditur conditoris.
+</p>
+
+<p>
+Unde Prosper inquit:
+“En miris operum signis ostenditur actor, actoremque suum condita queque canunt.”
 </p>
 
 </div>
 
 <script>
-function showGloss(word) {
-  const box = document.getElementById("glossBox");
-
-  if (word === "iaspis") {
-    box.innerHTML = "iaspis = wisdom / precious stone / knowledge";
-  }
-
-  box.style.display = "block";
-}
-
 function showNote() {
+  const note = document.getElementById("noteBox");
+  if (!note) {
+    const div = document.createElement("div");
+    div.id = "noteBox";
+    div.className = "box";
+    div.innerHTML = "Moral interpretation: gallus = foolish man, iaspis = wisdom, fimus = world.";
+    document.querySelector(".content").appendChild(div);
+  }
   document.getElementById("noteBox").style.display = "block";
 }
 </script>
