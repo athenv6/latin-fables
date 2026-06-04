@@ -1,25 +1,33 @@
-<script>
-document.addEventListener("DOMContentLoaded", function () {
+// 📖 get fable id from URL
+const params = new URLSearchParams(window.location.search);
+const id = params.get("id");
 
-  window.g = function (w) {
+// 📦 load all fables
+fetch("data/fables.json")
+  .then(res => res.json())
+  .then(data => {
 
-    let t = "";
+    // 🔍 find correct fable
+    const fable = data.find(f => f.id == id);
 
-    if (w === "fimum") t = "terram";
-    else if (w === "escam") t = "cibum";
-    else if (w === "iaspis") t = "sapientia / lapis preciosus";
-    else if (w === "sorde") t = "immunditia";
-    else if (w === "messis") t = "fructus";
-    else if (w === "repertor") t = "inventor";
-    else if (w === "nitor") t = "splendor";
-    else if (w === "conuenio") t = "congruo / aptus sum";
-    else if (w === "prosum") t = "utilis sum";
-    else if (w === "prodes") t = "utilis es";
-    else if (w === "cara") t = "pretiosa";
-    else if (w === "stolido") t = "stulto / insipiente";
+    // 🧠 put data into page
+    document.getElementById("title").innerText = fable.title;
+    document.getElementById("latin").innerText = fable.latin;
+    document.getElementById("commentary").innerText = fable.commentary;
 
-    document.getElementById("gloss").innerHTML = t;
-  };
+    // 📚 build glossary
+    let glossHTML = "";
 
-});
-</script>
+    for (let word in fable.words) {
+      glossHTML += `
+        <p><b>${word}</b> = ${fable.words[word]}</p>
+      `;
+    }
+
+    document.getElementById("gloss").innerHTML = glossHTML;
+  });
+
+// 🔘 quiz button
+function goQuiz() {
+  window.location.href = "quiz.html?id=" + id;
+}
