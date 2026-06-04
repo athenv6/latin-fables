@@ -98,3 +98,15 @@ if (window.location.pathname.includes("quiz")) {
       "Score: " + score + "/" + quizData.questions.length;
   };
 }
+function searchFable() {
+
+  const input =
+    document.getElementById("searchBox")
+      .value
+      .trim()
+      .toLowerCase();
+
+  if (input === "1") {
+    window.location.href = "fable.html?id=1";
+  }
+}
