@@ -1,5 +1,25 @@
 // =========================
-// COMMON VARIABLES
+// SEARCH (HOME PAGE)
+// =========================
+
+function searchFable() {
+
+  const input = document.getElementById("searchBox")
+    .value
+    .trim()
+    .toLowerCase();
+
+  // TEMP SIMPLE VERSION (no JSON yet)
+  if (input === "1" || input.includes("gallo")) {
+    window.location.href = "fable.html?id=1";
+  } else {
+    alert("Fable not found");
+  }
+}
+
+
+// =========================
+// GET ID FROM URL
 // =========================
 
 const params = new URLSearchParams(window.location.search);
@@ -9,42 +29,10 @@ let currentFable = null;
 
 
 // =========================
-// SEARCH FUNCTION (INDEX)
+// FABLE PAGE LOADER
 // =========================
 
-function searchFable() {
-
-  const searchBox = document.getElementById("searchBox");
-
-  if (!searchBox) return;
-
-  const input = searchBox.value.trim().toLowerCase();
-
-  fetch("data/fables.json")
-    .then(res => res.json())
-    .then(fables => {
-
-      const found = fables.find(f =>
-        f.id.toString() === input ||
-        f.title.toLowerCase().includes(input)
-      );
-
-      if (found) {
-        window.location.href = "fable.html?id=" + found.id;
-      } else {
-        alert("Fable not found.");
-      }
-
-    });
-
-}
-
-
-// =========================
-// FABLE PAGE
-// =========================
-
-if (window.location.pathname.includes("fable")) {
+if (window.location.pathname.includes("fable.html")) {
 
   fetch("data/fables.json")
     .then(res => res.json())
@@ -57,11 +45,8 @@ if (window.location.pathname.includes("fable")) {
         return;
       }
 
-      document.getElementById("title").innerText =
-        currentFable.title;
-
-      document.getElementById("commentary").innerText =
-        currentFable.commentary;
+      document.getElementById("title").innerText = currentFable.title;
+      document.getElementById("commentary").innerText = currentFable.commentary;
 
       const words = currentFable.latin.split(" ");
 
@@ -69,23 +54,12 @@ if (window.location.pathname.includes("fable")) {
 
       words.forEach(w => {
 
-        const clean =
-          w.replace(/[^a-zA-Z]/g, "");
+        const clean = w.replace(/[^a-zA-Z]/g, "");
 
         if (currentFable.words[clean]) {
-
-          html += `
-            <span
-              class="word"
-              onclick="showMeaning('${clean}')">
-              ${w}
-            </span>
-          `;
-
+          html += `<span class="word" onclick="showMeaning('${clean}')">${w}</span> `;
         } else {
-
           html += w + " ";
-
         }
 
       });
@@ -98,114 +72,19 @@ if (window.location.pathname.includes("fable")) {
 
 
 // =========================
-// CLICKABLE VOCAB
+// CLICKABLE WORDS
 // =========================
 
 function showMeaning(word) {
-
-  const meaning = currentFable.words[word];
-
   document.getElementById("popup").innerHTML =
-    `<b>${word}</b> = ${meaning}`;
-
+    "<b>" + word + "</b> = " + currentFable.words[word];
 }
 
 
 // =========================
-// QUIZ PAGE
-// =========================
-
-if (window.location.pathname.includes("quiz")) {
-
-  let quizData = null;
-
-  fetch("data/quizzes.json")
-    .then(res => res.json())
-    .then(data => {
-
-      quizData = data.find(q => q.id == id);
-
-      if (!quizData) {
-        document.body.innerHTML = "<h1>Quiz not found</h1>";
-        return;
-      }
-
-      document.getElementById("title").innerText =
-        "Quiz: Fable " + id;
-
-      const box =
-        document.getElementById("quizBox");
-
-      let html = "";
-
-      quizData.questions.forEach((q, i) => {
-
-        html += `
-          <div>
-            <b>${q.word}</b><br>
-            <input id="q${i}" placeholder="meaning">
-            <span id="r${i}"></span>
-          </div>
-          <br>
-        `;
-
-      });
-
-      box.innerHTML = html;
-
-      window.checkAnswers = function () {
-
-        let score = 0;
-
-        quizData.questions.forEach((q, i) => {
-
-          const input =
-            document.getElementById("q" + i)
-              .value
-              .trim()
-              .toLowerCase();
-
-          const resultBox =
-            document.getElementById("r" + i);
-
-          if (input === q.answer.toLowerCase()) {
-
-            resultBox.innerHTML = "✔";
-            resultBox.style.color = "green";
-
-            score++;
-
-          } else {
-
-            resultBox.innerHTML =
-              "✘ " + q.answer;
-
-            resultBox.style.color = "red";
-
-          }
-
-        });
-
-        document.getElementById("score").innerText =
-          "Score: " +
-          score +
-          "/" +
-          quizData.questions.length;
-
-      };
-
-    });
-
-}
-
-
-// =========================
-// QUIZ BUTTON FROM FABLE
+// QUIZ BUTTON
 // =========================
 
 function goQuiz() {
-
-  window.location.href =
-    "quiz.html?id=" + id;
-
+  window.location.href = "quiz.html?id=" + id;
 }
