@@ -1,1 +1,13 @@
-
+[
+  {
+    "id": 1,
+    "title": "De gallo et iaspide",
+    "latin": "Dum rigido fodit ore fimum, dum queritat escam, tunc stupet inuenta iaspide gallus.",
+    "commentary": "Gallus invenit iaspidem in fimo et non intellexit eius valorem.",
+    "words": {
+      "fimum": "terram",
+      "escam": "cibum",
+      "iaspis": "lapis preciosus"
+    }
+  }
+]
