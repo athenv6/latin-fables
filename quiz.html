@@ -1,133 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+  <meta charset="UTF-8">
 
-<link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+  <title>Quiz</title>
 
-<style>
-body {
-  font-family: 'MedievalSharp', cursive;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  margin: 0;
-  background: #f5f5f5;
-}
+  <!-- font -->
+  <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
 
-.box {
-  background: white;
-  padding: 30px;
-  border-radius: 10px;
-  width: 500px;
-}
-
-.row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 8px 0;
-}
-
-.word {
-  width: 90px;
-}
-
-input {
-  width: 160px;
-  padding: 4px;
-}
-
-.res {
-  width: 180px;
-  font-size: 14px;
-}
-
-button {
-  margin-top: 15px;
-  padding: 8px 15px;
-  cursor: pointer;
-}
-
-.center {
-  text-align: center;
-  margin-top: 10px;
-}
-</style>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="box">
+  <div class="container">
 
-<h2 class="center">Fable 1 Vocabulary</h2>
+    <h1 id="title">Quiz</h1>
 
-<div class="row">
-  <div class="word">fimum</div>
-  <input id="f1">
-  <div class="res" id="r1"></div>
-</div>
+    <!-- 📦 quiz goes here -->
+    <div id="quizBox"></div>
 
-<div class="row">
-  <div class="word">escam</div>
-  <input id="f2">
-  <div class="res" id="r2"></div>
-</div>
+    <button onclick="checkAnswers()">Check</button>
 
-<div class="row">
-  <div class="word">iaspis</div>
-  <input id="f3">
-  <div class="res" id="r3"></div>
-</div>
+    <p id="score"></p>
 
-<div class="row">
-  <div class="word">sorde</div>
-  <input id="f4">
-  <div class="res" id="r4"></div>
-</div>
+  </div>
 
-<div class="row">
-  <div class="word">messis</div>
-  <input id="f5">
-  <div class="res" id="r5"></div>
-</div>
-
-<div class="center">
-<button onclick="check()">Check</button>
-</div>
-
-</div>
-
-<script>
-function check() {
-
-let data = [
-  ["f1", "r1", "terram"],
-  ["f2", "r2", "cibum"],
-  ["f3", "r3", "sapientia"],
-  ["f4", "r4", "immunditia"],
-  ["f5", "r5", "fructus"]
-];
-
-for (let i = 0; i < data.length; i++) {
-
-let input = document.getElementById(data[i][0]).value.trim().toLowerCase();
-let box = document.getElementById(data[i][1]);
-let correct = data[i][2];
-
-if (input === correct) {
-  box.innerHTML = "✔";
-  box.style.color = "green";
-} else {
-  box.innerHTML = "✘ " + correct;
-  box.style.color = "red";
-}
-
-}
-
-}
-</script>
+  <script src="script.js"></script>
 
 </body>
 </html>
