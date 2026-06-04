@@ -1,15 +1,12 @@
+
 // =========================
-// SEARCH (HOME PAGE)
+// SEARCH (ONLY HOME PAGE)
 // =========================
 
 function searchFable() {
 
-  const input = document.getElementById("searchBox")
-    .value
-    .trim()
-    .toLowerCase();
+  const input = document.getElementById("searchBox").value.trim().toLowerCase();
 
-  // TEMP SIMPLE VERSION (no JSON yet)
   if (input === "1" || input.includes("gallo")) {
     window.location.href = "fable.html?id=1";
   } else {
@@ -19,20 +16,15 @@ function searchFable() {
 
 
 // =========================
-// GET ID FROM URL
-// =========================
-
-const params = new URLSearchParams(window.location.search);
-const id = params.get("id");
-
-let currentFable = null;
-
-
-// =========================
-// FABLE PAGE LOADER
+// ONLY RUN THIS ON FABLE PAGE
 // =========================
 
 if (window.location.pathname.includes("fable.html")) {
+
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get("id");
+
+  let currentFable = null;
 
   fetch("data/fables.json")
     .then(res => res.json())
@@ -67,7 +59,6 @@ if (window.location.pathname.includes("fable.html")) {
       document.getElementById("latin").innerHTML = html;
 
     });
-
 }
 
 
@@ -86,5 +77,8 @@ function showMeaning(word) {
 // =========================
 
 function goQuiz() {
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get("id");
+
   window.location.href = "quiz.html?id=" + id;
 }
