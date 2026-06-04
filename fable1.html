@@ -1,32 +1,94 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
   <title>Fable 1</title>
-  <link rel="stylesheet" href="style.css">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'MedievalSharp', cursive;
+      margin: 40px;
+      line-height: 1.8;
+
+      background-image: url("https://www.english.ox.ac.uk/sites/default/files/styles/mt_image_large/public/english/images/article/767px-wenceslas_hollar_-_the_cock_and_the_jewel.jpg?itok=mAj4ozid");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    .content {
+      background: rgba(255, 255, 255, 0.88);
+      padding: 30px;
+      border-radius: 10px;
+    }
+
+    .box {
+      display: none;
+      margin-top: 20px;
+      padding: 10px;
+      border-left: 3px solid darkgreen;
+      background: #f4f4f4;
+    }
+
+    .word {
+      color: darkblue;
+      cursor: pointer;
+    }
+
+    .symbol {
+      color: red;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
 </head>
 
 <body>
 
-<h1>Fable 1: De gallo et iaspide</h1>
+<div class="content">
+
+<h1>De gallo et iaspide</h1>
 
 <p>
-  Gallus invenit 
-  <span onclick="showGloss('gallus')">gallum</span>
-  et 
-  <span onclick="showGloss('iaspis')">iaspidem</span>
-  in fimo 
-  <span onclick="showNote()">▲</span>.
+Dum rigido fodit ore fimum, dum queritat escam, tunc stupet inventa 
+<span class="word" onclick="showGloss('iaspis')">iaspide</span> gallus. 
+Ayt: 
+<span class="symbol" onclick="showNote()">▲</span>
 </p>
 
-<!-- Gloss box -->
 <div id="glossBox" class="box"></div>
 
-<!-- Explanation box -->
 <div id="noteBox" class="box">
-  The symbol indicates moral interpretation: the fable contrasts wisdom and ignorance.
+Meaning: The fable contrasts foolishness (cock in dung) with wisdom (jasper).
 </div>
 
-<script src="script.js"></script>
+<hr>
+
+<p>
+“Res vili preciosa loco varique decoris, hac in sorde iaces; nil michi messis habes.
+Si tibi nunc esset qui debet esse repertor... Plus amo cara minus.”
+</p>
+
+</div>
+
+<script>
+function showGloss(word) {
+  const box = document.getElementById("glossBox");
+
+  if (word === "iaspis") {
+    box.innerHTML = "iaspis = wisdom / precious stone / knowledge";
+  }
+
+  box.style.display = "block";
+}
+
+function showNote() {
+  document.getElementById("noteBox").style.display = "block";
+}
+</script>
 
 </body>
 </html>
