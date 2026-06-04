@@ -1,33 +1,38 @@
-// 📖 get fable id from URL
 const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
 
-// 📦 load all fables
+let currentFable = null;
+
 fetch("data/fables.json")
   .then(res => res.json())
   .then(data => {
 
-    // 🔍 find correct fable
-    const fable = data.find(f => f.id == id);
+    currentFable = data.find(f => f.id == id);
 
-    // 🧠 put data into page
-    document.getElementById("title").innerText = fable.title;
-    document.getElementById("latin").innerText = fable.latin;
-    document.getElementById("commentary").innerText = fable.commentary;
+    document.getElementById("title").innerText = currentFable.title;
+    document.getElementById("commentary").innerText = currentFable.commentary;
 
-    // 📚 build glossary
-    let glossHTML = "";
+    // 🧠 build clickable Latin text
+    const words = currentFable.latin.split(" ");
 
-    for (let word in fable.words) {
-      glossHTML += `
-        <p><b>${word}</b> = ${fable.words[word]}</p>
-      `;
-    }
+    let html = "";
 
-    document.getElementById("gloss").innerHTML = glossHTML;
+    words.forEach(w => {
+      const clean = w.replace(/[^a-zA-Z]/g, ""); // remove punctuation
+
+      if (currentFable.words[clean]) {
+        html += `<span class="word" onclick="showMeaning('${clean}')">${w}</span> `;
+      } else {
+        html += w + " ";
+      }
+    });
+
+    document.getElementById("latin").innerHTML = html;
   });
 
-// 🔘 quiz button
-function goQuiz() {
-  window.location.href = "quiz.html?id=" + id;
+// 🧠 when word is clicked
+function showMeaning(word) {
+  const meaning = currentFable.words[word];
+  document.getElementById("popup").innerHTML =
+    `<b>${word}</b> = ${meaning}`;
 }
