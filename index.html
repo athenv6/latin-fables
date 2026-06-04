@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Latin Fables Search</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>Latin Fable Collection</h1>
+
+<p>Enter fable number:</p>
+
+<input type="text" id="searchBox" placeholder="e.g. 1">
+<button onclick="goToFable()">Search</button>
+
+<script>
+function goToFable() {
+  const num = document.getElementById("searchBox").value;
+  window.location.href = "fable" + num + ".html";
+}
+</script>
+
+</body>
+</html>

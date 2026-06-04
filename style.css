@@ -1,0 +1,17 @@
+body {
+  font-family: Georgia;
+  margin: 40px;
+}
+
+.box {
+  display: none;
+  margin-top: 20px;
+  padding: 10px;
+  border-left: 3px solid green;
+  background: #f4f4f4;
+}
+
+span {
+  cursor: pointer;
+  color: darkblue;
+}
